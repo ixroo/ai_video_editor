@@ -1,0 +1,57 @@
+{
+  "pipeline_version": "1.0.0",
+  "general": {
+    "workspace_dir": "storage/workspace",
+    "assets_broll_dir": "storage/assets/broll",
+    "assets_audio_dir": "storage/assets/audio",
+    "sqlite_db_path": "storage/queue.sqlite3",
+    "target_fps": 30,
+    "output_width": 1080,
+    "output_height": 1920,
+    "target_aspect_ratio": "9:16",
+    "max_video_duration_seconds": 60.0
+  },
+  "hardware": {
+    "use_vaapi": true,
+    "vaapi_device": "/dev/dri/renderD128"
+  },
+  "ear": {
+    "vad_min_silence_duration_ms": 400,
+    "vad_threshold": 0.5,
+    "whisper_model_size": "base",
+    "whisper_compute_type": "int8",
+    "whisper_language": "id"
+  },
+  "eye": {
+    "scene_detection_enabled": false,
+    "scene_threshold": 27.0,
+    "scene_min_len_sec": 1.0,
+    "face_tracking_enabled": false,
+    "face_sample_interval_sec": 0.5,
+    "face_min_confidence": 0.5,
+    "reframe_mode": "static_center",
+    "ocr_enabled": false
+  },
+  "brain": {
+    "gemini_model": "gemini-3.7-flash",
+    "gemini_fallback_model": "gemini-3.7-flash",
+    "min_clip_duration_seconds": 20.0,
+    "max_allowed_duration_seconds": 60.0
+  },
+  "hand": {
+    "enable_subtitles": true,
+    "subtitle_font_name": "DejaVu Sans",
+    "subtitle_font_size": 72,
+    "subtitle_words_per_line": 3,
+    "subtitle_margin_bottom": 460,
+    "subtitle_uppercase": false,
+    "segment_qp": 18,
+    "final_qp": 21,
+    "cpu_crf": 20,
+    "keep_temp_segments": false
+  },
+  "qc": {
+    "max_duration_tolerance": 0.35,
+    "max_allowed_black_duration": 0.30
+  }
+}
